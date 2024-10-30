@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="template::head"></head>
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		<!-- Navbar -->
+		<nav th:replace="template::barra-menu"></nav>
+		<aside th:replace="template::aside"></aside>
+		<div th:replace="template::contenido-pagina"></div>
+		<footer th:replace="template::footer"></footer>
+	</div>
+	<div th:replace="template::scripts"></div>
+</body>
+</html>

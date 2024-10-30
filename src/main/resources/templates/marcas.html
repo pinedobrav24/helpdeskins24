@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="template::head"></head>
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		<!-- Navbar -->
+		<nav th:replace="template::barra-menu"></nav>
+		<aside th:replace="template::aside"></aside>
+		  <div class="content-wrapper">
+		   	<!-- Content Header (Page header) -->
+    		<div class="content-header">
+      			<div class="container-fluid">
+        			<div class="row mb-2">
+         				<div class="col-sm-6">
+            				<h1 class="m-0">Gestion de Marcas</h1>
+          				</div><!-- /.col -->
+        			</div><!-- /.row -->
+      			</div><!-- /.container-fluid -->
+    		</div><!-- /.content-header -->
+		  
+		  	<!-- Main content -->
+    		<div class="content">
+      			<div class="container-xl">
+        			<div class="row d-flex justify-content-center">
+          				<div class="col-md-12">
+           					 <div class="card card-primary">
+            					  <div class="card-header">
+                						<h3 class="card-title">Listado de Marcas</h3>
+              						</div>
+              						<div class="card-body"> 
+              							              						
+                  						<table id="tmarcas" class="table table-bordered table-striped">
+                    						<thead>
+                    						  <tr>
+                    						    <th>Id</th>
+                    						    <th>Nombre</th>
+                    						    <th>Operaciones</th>
+                    						  </tr>
+                   						 </thead>
+                    						<tbody>
+                     							 <tr th:each="tm : ${marcas}">
+                     							   <td th:text="${tm.id}"></td>
+                     							   <td th:text="${tm.nombre}"></td>  
+                     							   <td class="d-flex justify-content-around">
+                        								<a th:href="@{/marcas/{id}(id=${tm.id})}" 
+                                                  			href="#" 
+                                                  			class="btn btn-sm btn-warning me-2">
+                                                  			<i class="fas fa-solid fas fa-edit"></i>
+                                              			</a>
+                                              			<a th:href="@{/marcas/delete(id=${tm.id})}" 
+                                                  			href="#" onclick="return(confirm('¿Deseas eliminar esta marca?'));"
+                                                  			class="btn btn-sm btn-danger">
+                                                  			<i class="fas fa-solid fas fa-trash"></i>
+                   									    </a>
+                   									 </td>
+                   									</tr>
+                   								</tbody>
+                   								<tfoot>
+                   									<tr class="text-center">
+                                            			<th>Id</th>
+                    						    		<th>Nombre</th>
+                    						    		<th>Operaciones</th>
+                                        			</tr> 
+                  							  </tfoot>
+                 							 </table>
+                  							<div class="row d-flex justify-content-start">
+                    					<div class="col-md-4">
+                      						<a href="#" th:href="@{marcas/nuevo}"
+                                				class="btn btn-primary my-3">Nueva Marca
+                                			</a>
+                    					</div> 
+                  				</div>
+                			</div><!--fin-car-body-->
+              			</div><!--fin-card-->
+            		</div>
+         		</div><!-- /.row -->
+      		</div><!-- /.container-fluid -->
+    	</div><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+		 
+    <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark"><!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      	<p>Sidebar content</p>
+    </div>
+  </aside><!-- /.control-sidebar -->
+	
+	<footer th:replace="template::footer"></footer>
+	<div th:replace="template::scripts"></div>
+		<script>
+  			$(function () {
+    			//Initialize Select2 Elements
+    			$('.select2').select2()
+
+    			//Initialize Select2 Elements
+    			$('.select2bs4').select2({
+      			theme: 'bootstrap4'
+    			})
+  			});
+		</script>
+    <script>
+  $(function () {
+    $("#tmarcas").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "columnDefs": [
+      			{ "width": "10px", "targets": 0 },
+                { "width": "20px", "targets": 2 }],
+      "buttons": [ "excel", "pdf", "print"],
+      "language": {
+                "search": "Buscar:",  // Personaliza el label de búsqueda
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "No se encontraron resultados",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de _MAX_ registros en total)",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+        "lengthMenu": [ [5, 10, 25, 50], [5, 10, 25, 50] ], // Opciones para el usuario
+        "pageLength": 5 // Valor por defecto en 5
+    }).buttons().container().appendTo('#tmarcas_wrapper .col-md-6:eq(0)');
+    
+  });
+</script>	
+</body>
+</html>

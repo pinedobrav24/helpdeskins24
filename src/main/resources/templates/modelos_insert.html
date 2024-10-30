@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="template::head"></head>
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		<!-- Navbar -->
+		<nav th:replace="template::barra-menu"></nav>
+		<aside th:replace="template::aside"></aside>
+		  <div class="content-wrapper">
+		   	<!-- Content Header (Page header) -->
+    		<div class="content-header">
+      			<div class="container-fluid">
+        			<div class="row mb-2">
+         				<div class="col-sm-6">
+            				<h1 class="m-0">Gestion de Modelos</h1>
+          				</div><!-- /.col -->
+        			</div><!-- /.row -->
+      			</div><!-- /.container-fluid -->
+    		</div><!-- /.content-header -->
+		  
+		  	<!-- Main content -->
+    		<div class="content">
+      			<div class="container-xl">
+        			<div class="row d-flex justify-content-center">
+          				<div class="col-md-9">
+           					 <div class="card card-primary mt-5">
+            					  <div class="card-header">
+                <h3 class="card-title">Registrar Nuevo Modelo</h3>
+              </div>
+              <form action="#" th:action="@{/modelos/insert}"
+              	th:object="${modelo}" method="post">
+                <div class="card-body">
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Tipo</label>
+                        <select th:field="*{tipoEquipo}" class="form-control select2" style="width: 100%;">
+                          <option th:each="t: ${tipoequipos}" th:value="${t.id}" th:text="${t.descripcion}">
+                          </option>                           
+                        </select>
+                      </div><!-- /.form-group -->
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Marca</label>
+                        <select th:field="*{marca}" class="form-control select2" style="width: 100%;">
+                          <option th:each="m: ${marcas}" th:value="${m.id}" th:text="${m.nombre}">
+                          </option>                           
+                        </select>
+                      </div><!-- /.form-group -->
+                    </div>
+                  </div><!--row--> 
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Descripción</label>
+                            <input type="text" id="Descripcion" th:field="*{descripcion}" class="form-control" placeholder="Ingrese Descripción del modelo">
+                          	<p class="alert alert-warning mt-2" 
+                       			th:if="${#fields.hasErrors('descripcion')}" 
+                   				th:errors="*{descripcion}">
+                   			</p>
+                          </div>
+                          <div class="form-group">
+                            <label>Procesador</label>
+                            <input type="text" id="Procesador" th:field="*{procesador}" class="form-control" placeholder="Ingrese Procesador del modelo">
+                          	<p class="alert alert-warning mt-2" 
+                       			th:if="${#fields.hasErrors('procesador')}" 
+                   				th:errors="*{procesador}">
+                   			</p>
+                          </div>
+                      </div> 
+                    </div><!--row-->
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Memoria RAM</label>
+                          <input type="text" id="Memoria" th:field="*{memoria}" class="form-control" placeholder="Ingrese capacidad de memoria RAM">
+                        	<p class="alert alert-warning mt-2" 
+                       			th:if="${#fields.hasErrors('memoria')}" 
+                   				th:errors="*{memoria}">
+                   			</p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Disco Duro</label>
+                          <input type="text" id="Disco" th:field="*{disco}" class="form-control" placeholder="Ingrese tipo de Disco y capacidad">
+                        	<p class="alert alert-warning mt-2" 
+                       			th:if="${#fields.hasErrors('disco')}" 
+                   				th:errors="*{disco}">
+                   			</p>
+                        </div>
+                      </div>  
+                    </div><!--row-->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group"></div>
+                          <label>Información adcional</label>
+                          <textarea id="adicional" th:field="*{infoadicional}" class="form-control" rows="3"></textarea>
+                        	<p class="alert alert-warning mt-2" 
+                       			th:if="${#fields.hasErrors('infoadicional')}" 
+                   				th:errors="*{infoadicional}">
+                   			</p>
+                        </div>
+                      </div><!--inf.adicional-->
+                    <div class="row d-flex justify-content-center mt-3">
+                      <div class="col-md-12">
+                        <div class="card card-info">
+                          <div class="card-header">
+                            <h3 class="card-title">Detalle para impresoras y escáneres</h3>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>PPM B/N</label>
+                                  <input type="text" id="PPM" th:field="*{ppmbn}" class="form-control" placeholder="Cantidad de impresiones por minuto B/N">
+                                	<p class="alert alert-warning mt-2" 
+                       					th:if="${#fields.hasErrors('ppmbn')}" 
+                   						th:errors="*{ppmbn}">
+                   					</p>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>PPM Color</label>
+                                  <input type="text" id="PPMC" th:field="*{pppc}" class="form-control" placeholder="Cantidad de impresiones por minuto Color">
+                                </div>
+                              </div>
+                            </div>
+                           </div><!--fin card body--> 
+                          </div><!--fin card-->
+
+                          </div>
+                        </div><!--row-->
+                        <div class="row">
+              					<div class="col-md-6">
+                                        	<div class="form-group">
+                                            	<label>Estado</label>
+                                            	<select th:field="*{estado}" class="form-control select2" style="width: 100%;">
+                                              	<option th:value="'1'"selected="selected">Habilitado</option>
+                                              	<option th:value="'2'">Deshabilitado</option>
+                                            	</select>
+                                         	</div><!-- /.form-group -->
+              					</div><!--Col-md-4-->
+              				</div><!--row-->
+                </div><!--fin card body-->
+              							<div class="card-footer ">
+              								<div class="row d-flex justify-content-end">
+              									<a href="/modelos" class="btn btn-secondary mx-3">Volver</a>
+              									<button type="submit" class="btn btn-success px-5 mx-3">Registrar</button>
+              								</div>
+              							</div>	
+              						</form>
+                      			
+              			</div><!--fin-card-->
+            		</div>
+         		</div><!-- /.row -->
+      		</div><!-- /.container-fluid -->
+    	</div><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+		 
+    <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark"><!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      	<p>Sidebar content</p>
+    </div>
+  </aside><!-- /.control-sidebar -->
+	
+	<footer th:replace="template::footer"></footer>
+	<div th:replace="template::scripts"></div>
+		<script>
+  			$(function () {
+    			//Initialize Select2 Elements
+    			$('.select2').select2()
+
+    			//Initialize Select2 Elements
+    			$('.select2bs4').select2({
+      			theme: 'bootstrap4'
+    			})
+  			});
+		</script>
+	
+	<script>
+    	// Mostrar notificación de éxito
+    	/*[[${success}]]*/ if (/*[[${success}]]*/ false) {
+    	    toastr.success('[[${success}]]');
+    	}
+	
+    	// Mostrar notificación de error
+    	/*[[${error}]]*/ if (/*[[${error}]]*/ false) {
+    	    toastr.error('[[${error}]]');
+    	}
+    </script>	
+</body>
+</html>

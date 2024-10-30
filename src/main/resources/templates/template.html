@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+     <meta charset="utf-8">
+  	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <title>SINI - INS</title>
+
+  	<!-- Google Font: Source Sans Pro -->
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  	<!-- Font Awesome Icons -->
+ 	<link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+ 	<!-- Theme style -->
+  	<link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../dist/css/app.css">
+    
+    <link rel="stylesheet" href="../plugins/toastr.min.css">
+    
+    <!-- DataTables -->
+  	<link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  	<link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  	<link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+	
+	
+</head>
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		<!-- Navbar -->
+		  <nav class="main-header navbar navbar-expand navbar-white navbar-light" th:fragment="barra-menu">
+		    <!-- Left navbar links -->
+		    <ul class="navbar-nav">
+		      <li class="nav-item">
+		        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+		      </li>
+		      <li class="nav-item d-none d-sm-inline-block">
+		        <a href="#" class="nav-link">Inicio</a>
+		      </li>
+		      <li class="nav-item d-none d-sm-inline-block">
+		        <a href="#" class="nav-link">Contacto</a>
+		      </li>
+		    </ul>
+		  </nav><!-- /.navbar -->
+		   <!-- Main Sidebar Container -->
+		  <aside class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="aside">
+		    <!-- Brand Logo -->
+		    <a href="#" class="brand-link">
+		      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+		      <span class="brand-text font-weight-light">HelpDesk INS</span>
+		    </a>
+		
+		    <!-- Sidebar -->
+		    <div class="sidebar" th:fragment="sidebar">
+		      <!-- Sidebar user panel (optional) -->
+		      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+		        <div class="image">
+		          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+		        </div>
+		        <div class="info">
+		          <a href="#" class="d-block">Yuri Pinedo</a>
+		        </div>
+		      </div>
+		
+		      
+		    <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                Asistencias
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Incidencias</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Requerimientos</p>
+                </a>
+              </li>
+            </ul>
+          </li><!--Mwnu-Asitencias-->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active bg-success">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                Inventarios
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registro de Equipos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Asignaciones</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Préstamos</p>
+                </a>
+              </li>
+            </ul>
+          </li><!--Mwnu-Inventarios-->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active bg-info">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                Mantenimiento
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" th:href="@{/equipos}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipos</p>
+                </a>
+              </li>
+			  <li class="nav-item">
+			    <a href="#" th:href="@{/modelos}" class="nav-link">
+			      <i class="far fa-circle nav-icon"></i>
+			      <p>Modelos</p>
+			    </a>
+			  </li>
+              <li class="nav-item">
+                <a href="#" th:href="@{/marcas}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Marcas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" th:href="@{/tipo_equipos}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tipo de Equipos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-suitcase nav-icon"></i>
+                <p>Centros y Oficinas</p>
+                <i class="fas fa-angle-left right"></i>
+              </a>
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" th:href="@{/centro_direcciones}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Centros Naciones / Direcciones </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" th:href="@{/subdireccionesof}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sub-Direcciones / Oficinas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" th:href="@{/unidades}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Unidades</p>
+                </a>
+              </li>
+            </ul>
+              
+              </li><!--centroyoficinas-->
+              
+              <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Personal</p>
+              </a>
+              </li>
+            </ul>
+          </li><!--Mwnu-Mantenimiento-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Simple Link
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  	
+	<!-- para contenido individual !-->
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper" th:fragment="contenido-pagina">
+    
+   	</div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div> <!-- /.content -->
+  </div><!-- /.content-wrapper, contenido individual-->
+  
+    <!-- Main Footer -->
+  <footer class="main-footer" th:fragment="footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Instituto Nacional de Salud
+    </div>
+     <!-- Default to the left -->
+    <strong>Copyright &copy; 2024 <a href="#">OTIC-USID / INS</a>.</strong> Todos los derechos reservados.
+  </footer>
+</div>
+      
+	<div th:fragment="scripts">
+		  	<script src="../plugins/jquery/jquery.min.js"></script>
+			<!-- jQuery UI 1.11.4 -->
+			<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+			<!-- AdminLTE App -->
+			<script src="../dist/js/adminlte.js"></script>
+			<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+			<script>
+			  $.widget.bridge('uibutton', $.ui.button)
+			</script>
+			<!-- Bootstrap 4 -->
+			<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<!-- ChartJS -->
+			<script src="../plugins/chart.js/Chart.min.js"></script>
+			<!-- Sparkline -->
+			<script src="../plugins/sparklines/sparkline.js"></script>
+			<!-- JQVMap -->
+			<script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
+			<script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+			<!-- jQuery Knob Chart -->
+			<script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
+			<!-- daterangepicker -->
+			<script src="../plugins/moment/moment.min.js"></script>
+			<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+			<!-- Tempusdominus Bootstrap 4 -->
+			<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+			<!-- Summernote -->
+			<script src="../plugins/summernote/summernote-bs4.min.js"></script>
+			<!-- overlayScrollbars -->
+			<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+			
+			<script src="../plugins/toastr/.min.js"></script>
+			
+			<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+			<script src="../dist/js/pages/dashboard.js"></script>
+			<script src="../plugins/select2/js/select2.full.min.js"></script>
+			
+			<!-- DataTables  & Plugins -->
+			<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+			<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+			<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+			<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+			<script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+			<script src="../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+			<script src="../plugins/jszip/jszip.min.js"></script>
+			<script src="../plugins/pdfmake/pdfmake.min.js"></script>
+			<script src="../plugins/pdfmake/vfs_fonts.js"></script>
+			<script src="../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+			<script src="../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+			<script src="../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+			
+		
+		</div>
+</body>
+</html>

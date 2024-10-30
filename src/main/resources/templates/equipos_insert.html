@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="template::head"></head>
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		<!-- Navbar -->
+		<nav th:replace="template::barra-menu"></nav>
+		<aside th:replace="template::aside"></aside>
+		  <div class="content-wrapper">
+		   	<!-- Content Header (Page header) -->
+    		<div class="content-header">
+      			<div class="container-fluid">
+        			<div class="row mb-2">
+         				<div class="col-sm-6">
+            				<h1 class="m-0">Gestion de Equipos </h1>
+          				</div><!-- /.col -->
+        			</div><!-- /.row -->
+      			</div><!-- /.container-fluid -->
+    		</div><!-- /.content-header -->
+		  
+		  	<!-- Main content -->
+    		<div class="content">
+      			<div class="container-xl">
+        			<div class="row d-flex justify-content-center">
+          				<div class="col-md-9">
+           					 <div class="card card-primary mt-5">
+            					  <div class="card-header">
+                						<h3 class="card-title">Registrar Nuevo Equipo</h3>
+              						</div>
+              						<form action="#" th:action="@{/equipos/insert}" 
+              							th:object="${equipo}" method="post">
+              							<div class="card-body">
+              								<div class="row d-flex justify-content-center">
+												<div class="col-md-4">
+													<div class="form-group">
+														<label for="">Tipo de Equipo</label>
+														<select id="seltipo"  class="form-control select2 pb-1" style="width: 100%;">
+															<option value="" selected>Seleccione un tipo...</option>
+															<option th:each="t: ${tipoequipos}" th:value="${t.id}" th:text="${t.descripcion}"></option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-8">
+													<div class="form-group">
+														<label for="">Modelo</label>
+														<select id="selModelos" th:field="*{modelo}" class="form-control select2" style="width: 100%;">
+															<option value="">Seleccione un modelo...</option>
+														</select>
+													</div>
+												</div>
+											</div><!--1ra fila-->
+											<div class="row d-flex justify-content-center">
+												<div class="col-md-6">
+													<div class="form-group">
+													  <label>Cód. Patrimonial</label>
+													  <input type="text" th:field="*{patrimonial}"class="form-control" placeholder="Ingrese código patrimonial">
+													  <p class="alert alert-warning mt-2" 
+													  		th:if="${#fields.hasErrors('patrimonial')}" 
+													  		th:errors="*{patrimonial}">
+													  </p>
+													</div>
+												  </div>
+												  <div class="col-md-6">
+													<div class="form-group">
+													  <label>Serie</label>
+													  <input type="text" th:field="*{serie}" class="form-control" placeholder="Ingrese serie del equipo">
+													  	<p class="alert alert-warning mt-2" 
+													  		th:if="${#fields.hasErrors('serie')}" 
+													  		th:errors="*{serie}">
+											  			</p>
+													</div>
+												  </div>
+											</div><!--2da fila-->
+											<div class="row d-flex justify-content-center">
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>Cód. Interno</label>
+														<input type="text" th:field="*{codinterno}" class="form-control" placeholder="Ingrese código patrimonial">
+														<p class="alert alert-warning mt-2" 
+															th:if="${#fields.hasErrors('codinterno')}" 
+															th:errors="*{codinterno}">
+														</p>
+													</div>
+												</div>
+												<div class="col-md-8">
+													<div class="form-group">
+														<label>Equipo Principal</label>
+														<select id="selEqPrinc" th:field="*{equipoPrincipal}" class="form-control select2 pb-1" style="width: 100%;">
+															<option value="" selected>Seleccione Eq. Principal...</option>
+															<option th:each="e: ${equiposprincipales}" th:value="${e[0]}" th:text="${e[1]} + ' -- ' + ${e[2]} + ' -- ' + ${e[3]} + ' -- ' + ${e[4]}"></option>
+														</select>
+													</div>
+												</div>
+											</div><!--3ra fila-->
+											<div class="row mb-3">
+												<div class="col-md-12">
+												  <div class="form-group"></div>
+													<label>Información adcional</label>
+													<textarea id="adicional" th:field="*{infoadicional}" class="form-control" rows="3"></textarea>
+													  <p class="alert alert-warning mt-2" 
+															 th:if="${#fields.hasErrors('infoadicional')}" 
+															 th:errors="*{infoadicional}">
+														 </p>
+												  </div>
+												</div><!--inf.adicional-->
+											<div class="row">
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>Condición</label>
+														<select th:field="*{condicion}" class="form-control select2 pb-1" style="width: 100%;">
+                                                			<option th:value="'1'"selected="selected">REGULAR</option>
+                                                			<option th:value="'2'">BUENO</option>
+															<option th:value="'3'">MALO</option>
+															<option th:value="'4'">P/BAJA</option>
+                                              			</select>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>Estado</label>
+														<select th:field="*{estado}" class="form-control select2" style="width: 100%;">
+														  <option th:value="'1'"selected="selected">Habilitado</option>
+														  <option th:value="'2'">Deshabilitado</option>
+														</select>
+													 </div><!-- /.form-group -->
+										 		</div><!--Col-md-4-->
+											</div><!--4ta fila-->
+											
+              							</div><!--fin-car-body-->
+              							<div class="card-footer ">
+              								<div class="row d-flex justify-content-end">
+              									<a href="/equipos" class="btn btn-secondary mx-3">Volver</a>
+              									<button type="submit" class="btn btn-success px-5 mx-3">Registrar</button>
+              								</div>
+              							</div>	
+              						</form>
+                      			
+              			</div><!--fin-card-->
+            		</div>
+         		</div><!-- /.row -->
+      		</div><!-- /.container-fluid -->
+    	</div><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+		 
+    <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark"><!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      	<p>Sidebar content</p>
+    </div>
+  </aside><!-- /.control-sidebar -->
+	
+	<footer th:replace="template::footer"></footer>
+	<div th:replace="template::scripts"></div>
+		<script>
+  			$(function () {
+    			//Initialize Select2 Elements
+    			$('.select2').select2()
+
+    			//Initialize Select2 Elements
+    			$('.select2bs4').select2({
+      			theme: 'bootstrap4'
+    			})
+  			});
+		</script>
+	
+	<script>
+    	// Mostrar notificación de éxito
+    	/*[[${success}]]*/ if (/*[[${success}]]*/ false) {
+    	    toastr.success('[[${success}]]');
+    	}
+	
+    	// Mostrar notificación de error
+    	/*[[${error}]]*/ if (/*[[${error}]]*/ false) {
+    	    toastr.error('[[${error}]]');
+    	}
+    </script>	
+	<script type="text/javascript">
+		 $(document).ready(function() {
+        $('#seltipo').change(function() {
+            // Obtener el ID del tipo de equipo seleccionado
+            var tipoEquipoId = $(this).val();
+            
+            // Verificar que haya un ID seleccionado
+            if (tipoEquipoId) {
+                // Hacer la solicitud AJAX
+                $.ajax({
+                    url: '/modelos/buscarTipo',  // Asegúrate de que la URL coincida con la del controlador
+                    type: 'GET',
+                    data: { tipoEquipo: tipoEquipoId },
+                    success: function(modelos) {
+                        // Limpiar el select de modelos antes de llenarlo
+                        $('#selModelos').empty();
+
+                        // Agregar una opción de selección predeterminada
+                        $('#selModelos').append('<option value="">Seleccione un modelo...</option>');
+
+                        // Llenar el select con las nuevas opciones
+                        $.each(modelos, function(index, modelo) {
+                            $('#selModelos').append(
+                                $('<option>', {
+                                    value: modelo.id,
+                                    text:  modelo.marca.nombre + ' -- ' + modelo.descripcion 
+                                })
+                            );
+                        });
+                    }
+                });
+            } else {
+                // Si no hay ID seleccionado, limpiar el select de modelos
+                $('#selModelos').empty();
+                $('#selModelos').append('<option value="">Seleccione un modelo...</option>');
+            }
+        });
+    });
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#seltipo').change(function(){
+				var tipoID=$(this).val();
+				console.log("Valor de tipoID:", tipoID); // Verifica el valor obtenido
+				if(tipoID === "1" || tipoID === "2"){
+					$('#selEqPrinc').val('').trigger('change');
+                	$('#selEqPrinc').prop('disabled', true).prop('disabled', true); // Aplica forzado
+				} else {
+					
+                	$('#selEqPrinc').prop('disabled', false).prop('disabled', false); // Aplica forzado
+           		}
+			});
+			$('#seltipo').trigger('change');
+			$('#selEqPrinc').trigger('change');
+		});
+	</script>
+</body>
+</html>
