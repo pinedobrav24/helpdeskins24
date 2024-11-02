@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ins.HelpdeskINS.entity.SubDireccionOF;
 import com.ins.HelpdeskINS.service.CentroDirecService;
 import com.ins.HelpdeskINS.service.SubDireccionOFService;
-import com.ins.HelpdeskINS.service.Tipo_EquipoService;
+
 
 @Controller
 @RequestMapping("/subdireccionesof")

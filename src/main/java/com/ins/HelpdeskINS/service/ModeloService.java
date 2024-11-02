@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.ins.HelpdeskINS.entity.Modelo;
 import com.ins.HelpdeskINS.repository.ModeloRepository;
 
-import jakarta.transaction.Transactional;
 
 @Service
 public class ModeloService {

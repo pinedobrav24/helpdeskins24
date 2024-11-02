@@ -106,7 +106,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" th:href="@{/asignaciones}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Asignaciones</p>
                 </a>
@@ -177,10 +177,37 @@
                   <p>Unidades</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="#" th:href="@{/areas}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Áreas</p>
+                </a>
+              </li>
             </ul>
               
               </li><!--centroyoficinas-->
-              
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-suitcase nav-icon"></i>
+                  <p>Ubicaciones/p>
+                  <i class="fas fa-angle-left right"></i>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" th:href="@{/sedes}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sedes </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" th:href="@{/sectores}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sectores</p>
+                  </a>
+                </li>
+              </ul>
+                
+                </li><!--centroyoficinas-->
               <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>

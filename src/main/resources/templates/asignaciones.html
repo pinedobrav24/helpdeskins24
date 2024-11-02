@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="template::head"></head>
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		<!-- Navbar -->
+		<nav th:replace="template::barra-menu"></nav>
+		<aside th:replace="template::aside"></aside>
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+			  <div class="container-fluid">
+				<div class="row mb-2">
+				  <div class="col-sm-6">
+					<h1 class="m-0">Gestión de Inventarios</h1>
+				  </div><!-- /.col -->
+				  <div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+					  <li class="breadcrumb-item"><a href="#">Home</a></li>
+					  <li class="breadcrumb-item active">Starter Page</li>
+					</ol>
+				  </div><!-- /.col -->
+				</div><!-- /.row -->
+			  </div><!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+		
+			<!-- Main content -->
+			<div class="content">
+			  <div class="container-xl">
+				  <div class="row d-flex justify-content-center">
+					<div class="col-md-9">
+					  <div class="card card-primary">
+						<div class="card-header">
+						  <h3 class="card-title">Registro de Nuevo Equipo</h3>
+						</div><!--card-title-->
+						<form action="">
+						  <div class="card-body">
+							<div class="row">
+							  <div class="col-md-6">
+								<div class="form-group">
+								  <label>Sede</label>
+								  <select class="form-control select2" style="width: 100%;">
+									<option selected="selected">Chorrillos</option>
+									<option>Jesús María</option>
+									<option>Cenan</option>
+									<option>Censopas</option>
+									<option>Cietrop</option>
+								  </select>
+								</div><!-- /.form-group -->
+							  </div>
+							  <div class="col-md-6">
+								<div class="form-group">
+								  <label>Sede</label>
+								  <select class="form-control select2" style="width: 100%;">
+									<option selected="selected">Chorrillos</option>
+									<option>Jesús María</option>
+									<option>Cenan</option>
+									<option>Censopas</option>
+									<option>Cietrop</option>
+								  </select>
+								</div><!-- /.form-group -->
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="col-md-6">
+								<div class="form-group">
+								  <label>Centro / Oficina</label>
+								  <select class="form-control select2" style="width: 100%;">
+									<option selected="selected">OTIC</option>
+									<option>CNSP</option>
+									<option>CETS</option>
+									<option>OA</option>
+									<option>CENAN</option>
+									<option>CENSOPAS</option>
+									<option>CENSI</option>
+									<option>CNCC</option>
+								  </select>
+								</div><!-- /.form-group -->
+							  </div><!--col-6-->
+							  <div class="col-md-6">
+								<div class="form-group">
+								  <label>SubDirección / Unidades</label>
+								  <select class="form-control select2" style="width: 100%;">
+									<option selected="selected">USID</option>
+									<option>UDT</option>
+								  </select>
+								</div><!-- /.form-group -->
+							  </div><!--col-6-->
+							</div><!--row-->
+							<div class="row d-flex">
+							  <div class="col-md-4">
+								<label>Usuario</label>
+								<div class="input-group input-group-sm">
+								  <input type="text" class="form-control">
+								  <span class="input-group-append">
+									<button type="button" class="btn btn-info btn-flat">Buscar</button>
+								  </span>
+								</div>
+							  </div>
+							  <div class="col-md-8 ">
+								<label>Nombre y Apellidos</label>
+								<div class="input-group input-group-sm">
+								  <input type="text" class="form-control">
+								  <span class="input-group-append">
+									<button type="button" class="btn btn-info btn-flat bg-success">Registrar</button>
+								  </span>
+								</div>
+							  </div>
+						  
+							</div><!--fin-row-->
+							<div class="row mt-5">
+							  <div class="col-md-12">
+								  <div class="card card-secondary">
+									  <div class="card-header">
+										Equipos Asignados
+									  </div>
+									  <div class="card-body">
+										<div class="card card-success">
+										  <div class="card-header">
+											<h3 class="card-title">Equipos Principales</h3>
+										  </div>
+										  <div class="card-body">
+											<div class="row">
+											  <div class="col-md-6">
+												<div class="form-group">
+												  <label>Código Patrimonial</label>
+												  <input type="text" class="form-control" placeholder="Ingrese código patrimonial">
+												</div>
+											  </div>
+											  <div class="col-md-6">
+												<div class="form-group">
+												  <label>Serie</label>
+												  <input type="text" class="form-control" placeholder="Ingrese serie del equipo">
+												</div>
+											  </div>
+											  </div><!--fin-row-->
+											  <div class="form-group">
+												<label>Descripción</label>
+												<select class="form-control select2" style="width: 100%;">
+												  <option selected="selected">Unidad Central de Proceso</option>
+												  <option>Computadora Personal Portátil</option>
+												  <option>Impresora</option>
+												  <option>Equipo Multifuncional - Impresora/Escáner</option>
+												</select>
+											  </div><!-- /.form-group -->
+											  <div class="row">
+												<div class="col-md-6">
+												  <div class="form-group">
+													<label>Marca</label>
+													<select class="form-control select2" style="width: 100%;">
+													  <option selected="selected">Dell</option>
+													  <option>Lenovo</option>
+													  <option>HP</option>
+													  <option>Vastec</option>
+													</select>
+												  </div><!-- /.form-group -->
+												</div><!--marca-->
+												<div class="col-md-6">
+												  <div class="form-group">
+													<label>Modelo</label>
+													<select class="form-control select2" style="width: 100%;">
+													  <option selected="selected">Optiplex 7060</option>
+													  <option>Optiplex 9020</option>
+													  <option>Vostro</option>
+													</select>
+												  </div><!-- /.form-group -->
+												</div><!--marca-->
+												<a href="#" type="submit" class="btn btn-primary d-block">  Agregar Equipo </a>
+											  </div>
+											</div>
+										  </div>
+										</div><!--equipos principales-->
+										<div class="card-body">
+										  <div class="card card-info">
+											<div class="card-header">
+											  <h3 class="card-title">Equipos Periféricos</h3>
+											</div>
+											<div class="card-body">
+											  <div class="row">
+												<div class="col-md-6">
+												  <div class="form-group">
+													<label>Código Patrimonial</label>
+													<input type="text" class="form-control" placeholder="Ingrese código patrimonial">
+												  </div>
+												</div>
+												<div class="col-md-6">
+												  <div class="form-group">
+													<label>Serie</label>
+													<input type="text" class="form-control" placeholder="Ingrese serie del equipo">
+												  </div>
+												</div>
+												</div><!--fin-row-->
+												<div class="form-group">
+												  <label>Descripción</label>
+												  <select class="form-control select2" style="width: 100%;">
+													<option selected="selected">Monitor</option>
+													<option>Teclado</option>                              
+												  </select>
+												</div><!-- /.form-group -->
+												<div class="row">
+												  <div class="col-md-6">
+													<div class="form-group">
+													  <label>Marca</label>
+													  <select class="form-control select2" style="width: 100%;">
+														<option selected="selected">HP</option>
+														<option>Lenovo</option>
+														<option>Dell</option>
+														<option>Vastec</option>
+													  </select>
+													</div><!-- /.form-group -->
+												  </div><!--marca-->
+												  <div class="col-md-6">
+													<div class="form-group">
+													  <label>Modelo</label>
+													  <select class="form-control select2" style="width: 100%;">
+														<option selected="selected">HP V221</option>
+														<option>HP V2349</option>                                              
+													  </select>
+													</div><!-- /.form-group -->
+												  </div><!--marca-->
+												  <a href="#" type="submit" class="btn btn-primary d-block">  Agregar Periférico </a>
+												</div>
+											  </div>
+											</div>
+										  </div><!--equipos perifericos-->
+								  </div>
+								</div>
+							  </div>
+							</div>
+						</form>
+					  </div>
+					  </div>
+				  </div><!--row-registro-->
+				  <div class="row">
+					<div class="col-md-12">
+					  <div class="card card-danger">
+						<div class="card-header">
+						  <h3 class="card-title">Resumen de equipos Asignados</h3>
+						</div>
+						<div class="card-body">
+						  <table id="resumen" class="table table-bordered table-striped">
+							<thead>
+							  <tr>
+								<th>Item</th>
+								<th>Patrimonial</th>
+								<th>Descripción</th>
+								<th>Marca</th>
+								<th>Modelo</th>
+								<th>Serie</th>
+								<th>Tipo</th>
+								<th>Eq. Principal</th>
+								<th>Operaciones</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr>
+								<td>1</td>
+								<td>740899502260</td>
+								<td>Unidad Central de Proceso</td>
+								<td>Dell</td>
+								<td>Optiplex 7060</td>
+								<td>J54DRN</td>
+								<td>Principal</td>
+								<td>-</td>
+								<td><button class="btn btn-danger btn-sm deleteRow">Eliminar</button></td>
+							  </tr>
+							  <tr>
+								<td>2</td>
+								<td>740877001911</td>
+								<td>Monitor</td>
+								<td>HP</td>
+								<td>V221</td>
+								<td>C6MT3418TR</td>
+								<td>Periférico</td>
+								<td>740899502260</td>
+								<td><button class="btn btn-danger btn-sm deleteRow">Eliminar</button></td>
+							  </tr>
+							</tbody>
+							<tfoot>
+							  <tr>
+								<th>Item</th>
+								<th>Patrimonial</th>
+								<th>Descripción</th>
+								<th>Marca</th>
+								<th>Modelo</th>
+								<th>Serie</th>
+								<th>Tipo</th>
+								<th>Eq. Principal</th>
+								<th>Operaciones</th>
+							  </tr>
+							</tfoot>
+						  </table>
+						</div>
+						<div class="row d-flex justify-content-center">
+						  <div class="col-md-11">
+							<a href="#" type="button" class="btn btn-primary d-block mb-4">Confirmar Asignaciones</a>
+						  </div>
+						</div>
+					   
+					  </div>
+					  
+					</div>
+				  </div>  
+			   
+			  </div><!-- /.container-fluid -->
+			</div><!-- /.content -->
+		  </div><!-- /.content-wrapper -->
+		 
+    <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark"><!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      	<p>Sidebar content</p>
+    </div>
+  </aside><!-- /.control-sidebar -->
+	
+	<footer th:replace="template::footer"></footer>
+	<div th:replace="template::scripts"></div>
+		<script>
+  			$(function () {
+    			//Initialize Select2 Elements
+    			$('.select2').select2()
+
+    			//Initialize Select2 Elements
+    			$('.select2bs4').select2({
+      			theme: 'bootstrap4'
+    			})
+  			});
+		</script>
+    <script>
+  $(function () {
+    $("#tbequipos").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      /*"columnDefs": [
+      			{ "width": "10px", "targets": 0 },
+                { "width": "20px", "targets": 2 }],
+      "buttons": [ "excel", "pdf", "print"],*/
+      "language": {
+                "search": "Buscar:",  // Personaliza el label de búsqueda
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "No se encontraron resultados",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de _MAX_ registros en total)",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+        "lengthMenu": [ [5, 10, 25, 50], [5, 10, 25, 50] ], // Opciones para el usuario
+        "pageLength": 5 // Valor por defecto en 5
+    }).buttons().container().appendTo('#tbequipos_wrapper .col-md-6:eq(0)');
+    
+  });
+</script>	
+</body>
+</html>

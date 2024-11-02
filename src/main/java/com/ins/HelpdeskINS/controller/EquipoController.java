@@ -1,7 +1,7 @@
 package com.ins.HelpdeskINS.controller;
 
 import java.util.List;
-import java.util.Map;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import com.ins.HelpdeskINS.service.EquipoService;
 import com.ins.HelpdeskINS.service.Tipo_EquipoService;
 
 @Controller
-@RequestMapping("equipos")
+@RequestMapping("/equipos")
 public class EquipoController {
 
 	@Autowired
@@ -46,15 +46,6 @@ public class EquipoController {
 		model.addAttribute("equipos", listarEquipos);
 		return "equipos";
 	}
-
-	/*
-	 * @GetMapping()
-	 * public String mostrarEquiposPri(Model model) {
-	 * List<Object[]> listarPrincipales = service.listarEquiposPrincipales();
-	 * model.addAttribute("equiposprincipales", listarPrincipales);
-	 * return "equipos";
-	 * }
-	 */
 
 	@GetMapping("/nuevo")
 	public String nuevo(Model model) {
